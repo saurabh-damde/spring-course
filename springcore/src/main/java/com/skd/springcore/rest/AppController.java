@@ -11,7 +11,7 @@ public class AppController {
     private Coach coach;
 
     @Autowired
-    public AppController(Coach coach) {
+    public void setCoach(Coach coach) {
         this.coach = coach;
     }
 
