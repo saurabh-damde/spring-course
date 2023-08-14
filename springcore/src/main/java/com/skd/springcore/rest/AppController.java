@@ -13,7 +13,7 @@ public class AppController {
     private Coach coach;
 
     @Autowired
-    public AppController(@Qualifier("baseballCoach") Coach coach) {
+    public AppController(@Qualifier("swimCoach") Coach coach) {
         this.coach = coach;
     }
 

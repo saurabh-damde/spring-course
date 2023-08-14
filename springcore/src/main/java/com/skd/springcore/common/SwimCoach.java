@@ -1,17 +1,14 @@
 package com.skd.springcore.common;
 
-import org.springframework.stereotype.Component;
+public class SwimCoach implements Coach {
 
-@Component
-public class BaseballCoach implements Coach {
-
-    public BaseballCoach() {
+    public SwimCoach() {
         System.out.println("In constructor: " + getClass().getSimpleName());
     }
 
     @Override
     public String getWorkout() {
-        return "Batting Practice...";
+        return "Swim 1000m for Warmup";
     }
 
 }
