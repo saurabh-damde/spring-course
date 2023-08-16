@@ -23,7 +23,7 @@ public class CrudTestApplication {
 	public CommandLineRunner commandLineRunner(StudentDAO studentDAO) {
 		return runner -> {
 			// createStudent(studentDAO);
-			// createMultipleStudents(studentDAO);
+			createMultipleStudents(studentDAO);
 			// readStudent(studentDAO);
 
 			// System.out.println("\nQuery to retrieve all Students...");
@@ -33,7 +33,7 @@ public class CrudTestApplication {
 
 			// updateStudent(studentDAO);
 			// deleteStudent(studentDAO);
-			deleteAllStudents(studentDAO);
+			// deleteAllStudents(studentDAO);
 		};
 	}
 
