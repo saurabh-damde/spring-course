@@ -24,8 +24,22 @@ public class CrudTestApplication {
 		return runner -> {
 			// createStudent(studentDAO);
 			// createMultipleStudents(studentDAO);
-			readStudent(studentDAO);
+			// readStudent(studentDAO);
+			System.out.println("\nQuery to retrieve all Students...");
+			readAllStudents(studentDAO);
+			System.out.println("\nQuery to retrieve Students by Last Name...");
+			readStudentsByLastName(studentDAO);
 		};
+	}
+
+	private void readStudentsByLastName(StudentDAO studentDAO) {
+		List<Student> students = studentDAO.findByLastName("Duck");
+		students.stream().forEach(System.out::println);
+	}
+
+	private void readAllStudents(StudentDAO studentDAO) {
+		List<Student> students = studentDAO.findAll();
+		students.stream().forEach(System.out::println);
 	}
 
 	private void readStudent(StudentDAO studentDAO) {
