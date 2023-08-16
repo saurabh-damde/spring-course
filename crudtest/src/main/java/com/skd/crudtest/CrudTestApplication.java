@@ -2,6 +2,7 @@ package com.skd.crudtest;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -22,8 +23,21 @@ public class CrudTestApplication {
 	public CommandLineRunner commandLineRunner(StudentDAO studentDAO) {
 		return runner -> {
 			// createStudent(studentDAO);
-			createMultipleStudents(studentDAO);
+			// createMultipleStudents(studentDAO);
+			readStudent(studentDAO);
 		};
+	}
+
+	private void readStudent(StudentDAO studentDAO) {
+		// System.out.println("Creating student object...");
+		// Student student = new Student("Daffy", "Duck", "daffyduck@email.com");
+		// System.out.println("Saving the student...");
+		// studentDAO.save(student);
+		// System.out.println("Saved Student ID: " + student.getId());
+		int id = new Random().nextInt(5);
+		System.out.println("Retrieving Student with ID: " + id);
+		Student stud = studentDAO.findById(id);
+		System.out.println("Found Student: " + stud);
 	}
 
 	private void createMultipleStudents(StudentDAO studentDAO) {

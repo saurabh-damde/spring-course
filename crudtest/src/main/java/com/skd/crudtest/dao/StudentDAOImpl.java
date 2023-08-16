@@ -24,4 +24,9 @@ public class StudentDAOImpl implements StudentDAO {
         manager.persist(student);
     }
 
+    @Override
+    public Student findById(Integer id) {
+        return manager.find(Student.class, id);
+    }
+
 }
