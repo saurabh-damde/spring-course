@@ -31,8 +31,22 @@ public class CrudTestApplication {
 			// System.out.println("\nQuery to retrieve Students by Last Name...");
 			// readStudentsByLastName(studentDAO);
 
-			updateStudent(studentDAO);
+			// updateStudent(studentDAO);
+			// deleteStudent(studentDAO);
+			deleteAllStudents(studentDAO);
 		};
+	}
+
+	private void deleteAllStudents(StudentDAO studentDAO) {
+		System.out.println("Deleting All Students...");
+		int rows = studentDAO.deleteAll();
+		System.out.println(rows + " Rows Deleted...");
+	}
+
+	private void deleteStudent(StudentDAO studentDAO) {
+		int id = 2;
+		System.out.println("Deleting Student with ID: " + id);
+		studentDAO.delete(id);
 	}
 
 	private void updateStudent(StudentDAO studentDAO) {
@@ -70,8 +84,8 @@ public class CrudTestApplication {
 	private void createMultipleStudents(StudentDAO studentDAO) {
 		System.out.println("Creating Students...");
 		List<Student> students = Arrays.asList(
+				new Student("John", "Doe", "johndoe@email.com"),
 				new Student("Jane", "Doe", "janedoe@email.com"),
-				new Student("Gane", "Doe", "ganedoe@email.com"),
 				new Student("Shane", "Doe", "shanedoe@email.com"));
 
 		System.out.println("Saving Students...");
