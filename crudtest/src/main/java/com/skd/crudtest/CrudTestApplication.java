@@ -25,11 +25,24 @@ public class CrudTestApplication {
 			// createStudent(studentDAO);
 			// createMultipleStudents(studentDAO);
 			// readStudent(studentDAO);
-			System.out.println("\nQuery to retrieve all Students...");
-			readAllStudents(studentDAO);
-			System.out.println("\nQuery to retrieve Students by Last Name...");
-			readStudentsByLastName(studentDAO);
+
+			// System.out.println("\nQuery to retrieve all Students...");
+			// readAllStudents(studentDAO);
+			// System.out.println("\nQuery to retrieve Students by Last Name...");
+			// readStudentsByLastName(studentDAO);
+
+			updateStudent(studentDAO);
 		};
+	}
+
+	private void updateStudent(StudentDAO studentDAO) {
+		int id = 2;
+		System.out.println("Getting Student with ID: " + id);
+		Student student = studentDAO.findById(id);
+		System.out.println("Updating Student...");
+		student.setFirstName("Dane");
+		studentDAO.update(student);
+		System.out.println("Updated Student: " + student);
 	}
 
 	private void readStudentsByLastName(StudentDAO studentDAO) {
