@@ -1,11 +1,10 @@
 package com.skd.employeecrud.entity;
 
-import org.springframework.data.annotation.Id;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
@@ -29,8 +28,7 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(int id, String firstName, String lastName, String email) {
-        this.id = id;
+    public Employee(String firstName, String lastName, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
