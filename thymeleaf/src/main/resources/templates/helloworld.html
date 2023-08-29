@@ -2,8 +2,9 @@
 <html xmlns:th="http://www.thymeleaf.org">
   <head>
     <title>Thymeleaf</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
   </head>
   <body>
-    <p th:text="'Server Time: '+${date}"></p>
+    <p th:text="'Server Time: '+${date}" class="funny"></p>
   </body>
 </html>
