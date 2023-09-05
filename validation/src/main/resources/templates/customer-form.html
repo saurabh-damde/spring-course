@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Customer Form</title>
+    <style>
+      .error {
+        font-style: italic;
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <i>Fill the form. (*) is required</i>
+    <br /><br /><br />
+    <form th:action="@{/processForm}" th:object="${customer}" method="post">
+      First Name: <input type="text" th:field="*{firstName}" /> <br /><br />
+      Last Name: <input type="text" th:field="*{lastName}" /> *
+
+      <span
+        th:if="${#fields.hasErrors('firstName')}"
+        th:errors="*{firstName}"
+        class="error"
+      ></span>
+      <br /><br />
+      <input type="submit" value="Submit" />
+    </form>
+  </body>
+</html>
