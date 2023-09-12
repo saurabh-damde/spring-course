@@ -28,7 +28,8 @@ public class SecurityConfig {
                 .requestMatchers("/systems/**").hasRole("ADMIN")
                 .anyRequest().authenticated())
                 .formLogin(form -> form.loginPage("/loginPage").loginProcessingUrl("/authenticate").permitAll())
-                .logout(logout -> logout.permitAll());
+                .logout(logout -> logout.permitAll())
+                .exceptionHandling(configurer -> configurer.accessDeniedPage("/access-denied"));
         return http.build();
     }
 
