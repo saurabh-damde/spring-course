@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.skd.springboot.thymleafemployeecrud.entity.Employee;
 import com.skd.springboot.thymleafemployeecrud.service.EmployeeService;
@@ -42,4 +43,10 @@ public class EmployeeController {
         return "redirect:/employees/list";
     }
 
+    @GetMapping("/updateEmployee")
+    public String updateEmployee(@RequestParam("employeeId") int id, Model model) {
+        Employee employee = service.findById(id);
+        model.addAttribute("employee", employee);
+        return "employees/employee-form";
+    }
 }
