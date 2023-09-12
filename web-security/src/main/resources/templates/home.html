@@ -1,5 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<html
+  lang="en"
+  xmlns:th="https://www.thymeleaf.org"
+  xmlns:sec="https://www.thymeleaf.org/extras/spring-security"
+>
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -10,6 +14,11 @@
     <h2>Home Page</h2>
     <hr />
     <p>Welcome to the Home Page...</p>
+    <hr />
+    <p>
+      User: <span sec:authentication="principal.username"></span> <br /><br />
+      Role(s): <span sec:authentication="principal.authorities"></span>
+    </p>
     <form action="#" method="post" th:action="@{/logout}">
       <input type="submit" value="Logout" />
     </form>
